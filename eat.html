@@ -31,10 +31,13 @@
  <!--JQuery-->
  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
- <script src="sleep_cal.js"></script>
+ <script src="eat_cal.js"></script>
 
   <!--付箋アニメーション-->
   <script src="husenfade.js"></script>
+
+ <script src="http://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+ <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
 
 </head>
 <!--headタグ終了-->
@@ -95,81 +98,104 @@
         <!----- main -----> 
         <article id="main">
             <div class="today_score">
-                <div class="title husen_m -a">本日の睡眠</div>
+                <div class="title husen_m -a">本日の食事</div>
                 <div class="contents">
-                    <div class="topics">総睡眠時間</div>
+                    <div class="topics">総摂取カロリー</div>
                     <div class="value">
-                        <div id="sleep_all"></div>
+                        <div id="gaincal_all"></div>
                     </div>
-                    <div class="topics">就寝時間</div>
+                    <div class="topics">項目1</div>
                     <div class="value">
-                        <div id="sleep_start"></div>
+                        <div id="eat_menu_1"></div>
+                        <div id="eat_p_1"></div>
+                        <div id="eat_f_1"></div>
+                        <div id="eat_c_1"></div>
+                        <div id="eat_cal_1"></div>
                     </div>
-                    <div class="topics">起床時間</div>
+                    <div class="topics">項目2</div>
                     <div class="value">
-                        <div id="sleep_end"></div>
+                        <div id="eat_menu_2"></div>
+                        <div id="eat_p_2"></div>
+                        <div id="eat_f_2"></div>
+                        <div id="eat_c_2"></div>
+                        <div id="eat_cal_2"></div>
                     </div>
-                    <div class="topics">二度寝</div>
+                    <div class="topics">項目3</div>
                     <div class="value">
-                        <div id="sleep_again"></div>
+                        <div id="eat_menu_3"></div>
+                        <div id="eat_p_3"></div>
+                        <div id="eat_f_3"></div>
+                        <div id="eat_c_3"></div>
+                        <div id="eat_cal_3"></div>
                     </div>
-                    <div class="topics">睡眠スコア</div>
+                    <div class="topics">食事スコア</div>
                     <div class="value">
-                        <div id="sleep_score"></div>
+                        <div id="eat_score"></div>
                     </div>
                 </div>
             </div>
             <div class="today_score">
-                <div class="title husen_m -b">睡眠内容の記入</div>
+                <div class="title husen_m -b">食事内容の記入</div>
                 <div class="contents">
-                    <div class="topics">就寝時間</div>
+                    <div class="topics">項目1</div>
                     <div class="value">
-                        <input type="number" id="sleep_start_h" value="">
-                        <span>:<span>
-                        <input type="number" id="sleep_start_m" value="">
+                        <span>品目名:<span>
+                        <input type="text" class="keyword" id="key_a" title="検索キーワード" 
+                        placeholder="メニューを探す">
                     </div>
-                    <div class="topics">起床時間</div>
+                    <div class="topics">項目2</div>
                     <div class="value">
-                        <input type="number" id="sleep_end_h" value="">
-                        <span>:<span>
-                        <input type="number" id="sleep_end_m" value="">
+                        <span>品目名:<span>
+                        <input type="text" class="keyword" id="key_b" title="検索キーワード" 
+                        placeholder="メニューを探す">
                     </div>
-                    <div class="topics">二度寝</div>
+                    <div class="topics">項目3</div>
                     <div class="value">
-                        <input type="number" id="sleep_again_h" value="">
-                        <span>時間<span>
-                        <input type="number" id="sleep_again_m" value="">
-                        <span>分<span>
+                        <span>品目名:<span>
+                        <input type="text" class="keyword" id="key_c" title="検索キーワード" 
+                        placeholder="メニューを探す">
                     </div>
                     <div class="button_style">
-                        <input id="button1" type="button" value="記入内容を確定" onclick="sleep_calculate()">
+                        <input id="button1" type="button" value="記入内容を確定" onclick="eat_calculate()">
                     </div>
                 </div>
             </div>
             <div class="main_details">
                 <div class="main_details_left">
-                    <div class="title husen_m_half -c">昨日の睡眠</div>
+                    <div class="title husen_m_half -c">昨日の食事</div>
                     <div class="contents">
-                        <div class="topics">総睡眠時間</div>
+                        <div class="topics">総摂取カロリー</div>
                         <div class="value">
-                            <div id="sleep_all_yd"></div>
+                            <div id="gaincal_all_yd"></div>
                         </div>
-                        <div class="topics">就寝時間</div>
+                        <div class="topics">項目1</div>
                         <div class="value">
-                            <div id="sleep_start_yd"></div>
+                            <div id="eat_menu_1_yd"></div>
+                            <div id="eat_p_1_yd"></div>
+                            <div id="eat_f_1_yd"></div>
+                            <div id="eat_c_1_yd"></div>
+                            <div id="eat_cal_1_yd"></div>
                         </div>
-                        <div class="topics">起床時間</div>
+                        <div class="topics">項目2</div>
                         <div class="value">
-                            <div id="sleep_end_yd"></div>
+                            <div id="eat_menu_2_yd"></div>
+                            <div id="eat_p_2_yd"></div>
+                            <div id="eat_f_2_yd"></div>
+                            <div id="eat_c_2_yd"></div>
+                            <div id="eat_cal_2_yd"></div>
                         </div>
-                        <div class="topics">二度寝</div>
+                        <div class="topics">項目3</div>
                         <div class="value">
-                            <div id="sleep_again_yd"></div>
+                            <div id="eat_menu_3_yd"></div>
+                            <div id="eat_p_3_yd"></div>
+                            <div id="eat_f_3_yd"></div>
+                            <div id="eat_c_3_yd"></div>
+                            <div id="eat_cal_3_yd"></div>
                         </div>
-                        <div class="topics">睡眠スコア</div>
-                        <div class="value">
-                            <div id="sleep_score_yd"></div>
-                        </div>
+                        <div class="topics">食事スコア</div>
+                            <div class="value">
+                                <div id="eat_score_yd"></div>
+                            </div>
                     </div>
                 </div>
                 <div class="main_details_right">
@@ -201,8 +227,8 @@
                 <div class="clip_under_background"><div class="clip_under"></div></div>
                 <div class="aside_lists">
                     <li class="husen_s"><a href="index.html#header" class="aside_item">トップ</a></li>
-                    <li class="husen_s"><a href="eat.html#header" class="aside_item">食事管理</a></li>
-                    <li class="husen_s_blue"><a href="#header" class="aside_item">睡眠管理</a></li>
+                    <li class="husen_s_blue"><a href="#header" class="aside_item">食事管理</a></li>
+                    <li class="husen_s"><a href="sleep.html#header" class="aside_item">睡眠管理</a></li>
                     <li class="husen_s"><a href="training.html#header" class="aside_item">運動管理</a></li>
                     <li class="husen_s"><a href="calendar.html#header" class="aside_item">カレンダー</a></li>
                     <li class="husen_s"><a href="settings.html#header" class="aside_item">設定とアイテム</a></li>

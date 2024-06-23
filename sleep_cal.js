@@ -1,3 +1,40 @@
+/********************睡眠管理の関数(sleep.html)********************/
+window.onload = function() {
+
+    var al_array_h = "6";
+    var al_array_m = "20";
+    var s_array_h = "23";
+    var s_array_m = "10";
+    var e_array_h = "05";
+    var e_array_m = "30";
+    var ag_array_h = "0";
+    var ag_array_m = "00";
+    var return_sc = "22";
+
+    var al_array_h_yd = "8";
+    var al_array_m_yd = "10";
+    var s_array_h_yd = "01";
+    var s_array_m_yd = "10";
+    var e_array_h_yd = "08";
+    var e_array_m_yd = "00";
+    var ag_array_h_yd = "0";
+    var ag_array_m_yd = "20";
+    var return_sc_yd = "24";
+
+    document.getElementById('sleep_all').textContent = al_array_h + "時間" + al_array_m + "分";
+    document.getElementById('sleep_start').textContent = s_array_h + " : " + s_array_m;
+    document.getElementById("sleep_end").textContent = e_array_h + " : " + e_array_m;
+    document.getElementById("sleep_again").textContent = ag_array_h + "時間" + ag_array_m + "分";
+    document.getElementById("sleep_score").textContent = return_sc;
+
+    document.getElementById('sleep_all_yd').textContent = al_array_h_yd + "時間" + al_array_m_yd + "分";
+    document.getElementById('sleep_start_yd').textContent = s_array_h_yd + " : " + s_array_m_yd;
+    document.getElementById("sleep_end_yd").textContent = e_array_h_yd + " : " + e_array_m_yd;
+    document.getElementById("sleep_again_yd").textContent = ag_array_h_yd + "時間" + ag_array_m_yd + "分";
+    document.getElementById("sleep_score_yd").textContent = return_sc_yd;
+  };
+
+
 function sleep_calculate() {
 
     var sleep_start_h = parseInt(document.getElementById('sleep_start_h').value);
@@ -17,6 +54,8 @@ function sleep_calculate() {
 
     all_array = all_calculate(all_array, start_array, end_array, again_array);
 
+    var return_sc = sleep_score(all_array, again_array);
+
     const return_start_h = hour_addzero(start_array[0]);
     const return_start_m = minute_addzero(start_array[1]);
     const return_end_h = hour_addzero(end_array[0]);
@@ -26,8 +65,9 @@ function sleep_calculate() {
     document.getElementById('sleep_start').textContent = return_start_h + " : " + return_start_m;
     document.getElementById("sleep_end").textContent = return_end_h + " : " + return_end_m;
     document.getElementById("sleep_again").textContent = again_array[0] + "時間" + again_array[1] + "分";
-};
+    document.getElementById("sleep_score").textContent = return_sc;
 
+}
 function time_calculate(array) {
     if(array[1] >= 60){
         array[0] = array[0] + Math.floor(array[1] / 60);
@@ -88,3 +128,32 @@ function hour_addzero(hour) {
     }
     return hour_addzero;
 };
+
+function sleep_score(al_array, ag_array){
+    
+    var return_score;
+
+    al_minute = al_array[0] * 60 + al_array[1];
+    ag_minute = ag_array[0] * 60 + ag_array[1];
+
+    if(al_minute >= 270 && al_minute <= 420){
+        return_score = Math.floor((al_minute - 270) / 5);
+        return_score = return_score - Math.floor(ag_minute / 3);
+        if(return_score < 0){
+            return_score = 0;
+        }
+    }
+    else if(al_minute < 270){
+        return_score = 0;
+    }
+    else if(al_minute > 420){
+        return_score = 30;
+        return_score = return_score - Math.floor(ag_minute / 3);
+        if(return_score < 0){
+            return_score = 0;
+        }
+    }
+    
+    return return_score;
+
+}

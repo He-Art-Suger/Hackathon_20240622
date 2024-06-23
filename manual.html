@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<!--文書タイプ, おまじない-->
+
+<html lang="ja">
+<!--ホームページの言語-->
+
+<head>
+ <!--headタグ開始-->
+
+ <meta charset="utf-8">
+ <!--文字コード-->
+
+ <title>健康管理アプリケーション</title>
+ <!--webサイトタイトル-->
+
+ <meta name="description" content="健康管理アプリケーション">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <!--ディスクリプション（サイトの概要）-->
+
+ <link rel="stylesheet" href="header.css">
+ <link rel="stylesheet" href="position.css">
+ <link rel="stylesheet" href="main.css">
+ <link rel="stylesheet" href="aside.css">
+<!--CSSのファイルをhrefに指定（相対パス）-->
+
+ <!-- [if lt IE 9] -->
+ <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+ <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+ <!-- [endif] -->
+
+ <!--JQuery-->
+ <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+  <!--付箋アニメーション-->
+  <script src="husenfade.js"></script>
+
+</head>
+<!--headタグ終了-->
+
+<body>
+<!--body-->
+
+    <!----- header----->
+    <header id="header">
+        <div class="header_background">
+            <a href="index.html#header_title" class="header_title">健康管理アプリケーション</a>
+        </div>
+        <div class="menu">
+            <div class="header_details">
+                <div class="header_summary">
+                    <div class="summary_background"><a class="summary_name" href="#">スコア関係</a></div>
+                        <div class="summary_lists">
+                            <li><a href="#score_about">スコアとは</a></li>
+                            <li><a href="#score_cal">計算方式</a></li>
+                            <li><a href="#score_item">アイテムの獲得</a></li>
+                        </div>
+                </div>
+            </div>
+            <div class="header_details">
+                <div class="header_summary">
+                    <div class="summary_background"><a class="summary_name" href="#">食事・睡眠・運動の説明</a></div>
+                        <div class="summary_lists">
+                            <li><a href="#eat_about">食事内容の説明</a></li>
+                            <li><a href="#sleep_about">睡眠内容の説明</a></li>
+                            <li><a href="#training_about">運動内容の説明</a></li>
+                        </div>
+                </div>
+            </div>
+            <div class="header_details">
+                <div class="header_summary">
+                    <div class="summary_background"><a class="summary_name" href="#">冒険関係</a></div>
+                        <div class="summary_lists">
+                            <li><a href="#quest_departure">冒険へ向かう</a></li>
+                            <li><a href="#item_about">アイテムの説明</a></li>
+                        </div>
+                </div>
+            </div>
+            <div class="header_details">
+                <div class="header_summary">
+                    <div class="summary_background"><a class="summary_name" href="#">こだわり</a></div>
+                        <div class="summary_lists">
+                            <li><a href="#frontend">フロントエンド</a></li>
+                            <li><a href="#backend">バックエンド</a></li>
+                            <li><a href="#game">ゲーム開発</a></li>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!----- /header ----->
+
+    <div class="position">
+        <!----- main -----> 
+        <article id="main">
+            <div class="title husen_m -a">スコア関係</div>
+            <div class="contents">
+                <div class="mini_title" id="score_about">スコアとは</div>
+                <div class="mini_title" id="score_cal">計算方式</div>
+                <div class="mini_contents">
+                    食事:40点<br>
+                    p:f:c = 15:25:60<br>
+                    女性 2000程度 p:75g f:55g c:300g<br>
+                    男性 2600程度 p:100g f:70g c:400g<br>
+                    その他 2300程度 p:90g f:60g c:350g<br>
+                    理想の0.8～1.2倍で点数、各最大10点, 最小は無限小(いずれかの値が無限に大きい場合)<br>
+                    最終的に値がマイナスなら0点扱いとなる<br>
+                    計算式:10 - 50 * |1-(x/ideal)|<br><br>
+                    睡眠:30点<br>
+                    睡眠時間<br>
+                    ～4時間30分:0点<br>
+                    4時間30分～7時間:5分で+1点<br>
+                    7時間以上:30点<br>
+                    二度寝:3分で-1点<br><br>
+                    運動:30点<br>
+                    カロリー10消費ごとに+1点
+                </div>
+                <div class="mini_title" id="score_item">アイテムの獲得</div>
+            </div>
+            <div class="title husen_m -b">食事・睡眠・運動の説明</div>
+            <div class="contents">
+                <div class="mini_title" id="eat_about">食事内容の説明</div>
+                <div class="mini_title" id="sleep_about">睡眠内容の説明</div>
+                <div class="mini_title" id="training_about">運動内容の説明</div>
+            </div>
+            <div class="title husen_m -c">冒険関係</div>
+            <div class="contents">
+                <div class="mini_title" id="quest_departure">冒険へ向かう</div>
+                <div class="mini_title" id="item_about">アイテムの説明</div>
+            </div>
+            <div class="title husen_m -d">こだわり</div>
+            <div class="contents">
+                <div class="mini_title" id="frontend">フロントエンド</div>
+                <div class="mini_title" id="backend">バックエンド</div>
+                <div class="mini_title" id="game">ゲーム開発</div>
+            </div>
+        </article>
+        <!----- /main ----->
+
+        <!----- aside ----->
+        <aside id="aside">
+            <div class="aside_topic">
+                <div class="aside_title"><div class="aside_initial">M E N U</div></div>
+                <div class="clip_over_background"><div class="clip_over"></div></div>
+                <div class="clip_under_background"><div class="clip_under"></div></div>
+                <div class="aside_lists">
+                    <li class="husen_s"><a href="index.html#header" class="aside_item">トップ</a></li>
+                    <li class="husen_s"><a href="eat.html#header" class="aside_item">食事管理</a></li>
+                    <li class="husen_s"><a href="sleep.html#header" class="aside_item">睡眠管理</a></li>
+                    <li class="husen_s"><a href="training.html#header" class="aside_item">運動管理</a></li>
+                    <li class="husen_s"><a href="calendar.html#header" class="aside_item">カレンダー</a></li>
+                    <li class="husen_s"><a href="settings.html#header" class="aside_item">設定とアイテム</a></li>
+                    <li class="husen_s_blue"><a href="#header" class="aside_item">アプリの説明</a></li>
+                </div>
+            </div>
+        </aside>
+    <!----- /aside ----->
+    </div>
+</body>
+</html>

@@ -34,18 +34,57 @@
     padding: 0.25em 0.5em;/*上下 左右の余白*/
     margin-top: 30px;
     margin-bottom: 10px;
+    margin-left: 5%;
+    width: 75%;
     text-align: center;
     font-size: 35px;
     font-family: 'M PLUS Rounded 1c', sans-serif;
     color: #000;/*文字色*/
     background-image: -webkit-linear-gradient(left, #5ade00 0%, #80ff2a 50%, #67ff00 100%);
     background-image: linear-gradient(to right, #5ade00 0%, #80ff2a 50%, #67ff00 100%);
+
+    opacity: 0;
+}
+
+.husen_m.js-active {
+    opacity: 1;
     border-left: solid 60px #4cbd00;
+    transition: all 2.5s ease;
 }
 
 .husen_m::first-letter {
-    color: #7f001b;
+    color: #da002f;
 }
+
+
+
+.husen_m_half {
+    padding: 0.25em 0.5em;/*上下 左右の余白*/
+    margin-top: 30px;
+    margin-bottom: 10px;
+    margin-left: 5%;
+    width: 70%;
+    text-align: center;
+    font-size: 30px;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    color: #000;/*文字色*/
+    background-image: -webkit-linear-gradient(left, #5ade00 0%, #80ff2a 50%, #67ff00 100%);
+    background-image: linear-gradient(to right, #5ade00 0%, #80ff2a 50%, #67ff00 100%);
+
+    opacity: 0;
+}
+
+.husen_m_half.js-active {
+    opacity: 1;
+    border-left: solid 40px #4cbd00;
+    transition: all 2.0s ease;
+}
+
+.husen_m_half::first-letter {
+    color: #da002f;
+}
+
+
 
 .topics {
     padding: 0.25em 0.5em;
@@ -85,6 +124,44 @@
     font-weight: bold;
 }
 
+.keyword{
+    margin: auto;
+    background: #fff;
+    display: block;
+    width: 40%;
+    height: 30px;
+    padding: 8px 50px 8px 8px;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.button_style {
+    margin: auto;
+    width: 60%;
+    padding: 40px;
+    border-radius: 7px;
+}
+
+#button1 {
+    display: block;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 60%;
+    height: 50px;
+    border-radius: 10px;
+    background-color: #fff;
+    font-size: 20px;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-weight: bold;
+    box-shadow: 5px 5px 3px #999;
+    cursor: pointer;
+}
+
+#button1:active {
+    background-color: #ddd;
+    box-shadow: 3px 3px 2px #999;
+}
 
 
 
@@ -125,7 +202,11 @@
     padding: 0.10em 0.5em;/*上下 左右の余白*/
     margin-top: 30px;
     margin-bottom: 20px;
-    font-size: 20px;
-    font-family: bold;
-    border-left: solid 5px #7f001b;/*左線*/
+    text-align: center;
+    font-size: 30px;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+
+.mini_contents {
+    text-align: center;
 }

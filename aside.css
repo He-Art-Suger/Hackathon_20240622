@@ -42,6 +42,22 @@
     transition: border-left 1.3s;
 }
 
+.aside_lists .husen_s_blue {
+    display: block;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin: 10px;
+    background-image: -webkit-linear-gradient(left, #2f94ff 0%, #56d4ff 50%, #3cb7ff 100%);
+    background-image: linear-gradient(to right, #2f94ff 0%, #56d4ff 50%, #3cb7ff 100%);
+    border-left: solid 30px #0071cd;
+    text-align: center;
+}
+
+.aside_lists .husen_s_blue:hover {
+    border-left: solid 20px #0071cd;
+    transition: border-left 1.3s;
+}
+
 .aside_lists li:hover .aside_item{
     font-weight: bold;
     transition: font-weight 0.3s;
@@ -49,7 +65,7 @@
 
 .aside_item {
     text-decoration: none;
-    font-size: 20px;
+    font-size: 18px;
     color: #333;
     font-family: 'M PLUS Rounded 1c', sans-serif;
 }
