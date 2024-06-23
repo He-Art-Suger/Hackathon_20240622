@@ -182,3 +182,16 @@
 .mini_contents {
     text-align: center;
 }
+
+.value_top {
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+
+.value_top_total {
+    font-size: 30px;
+    font-weight: bold;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    color: #da002f;
+}
