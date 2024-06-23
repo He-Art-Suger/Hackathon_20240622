@@ -31,7 +31,7 @@
  <!--JQuery-->
  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
- <script src="sleep_cal.js"></script>
+ <script src="setting_cal.js"></script>
 
   <!--付箋アニメーション-->
   <script src="husenfade.js"></script>
@@ -95,98 +95,84 @@
         <!----- main -----> 
         <article id="main">
             <div class="today_score">
-                <div class="title husen_m -a">本日の睡眠</div>
+                <div class="title husen_m -a">設定</div>
                 <div class="contents">
-                    <div class="topics">総睡眠時間</div>
+                    <div class="topics">身長</div>
                     <div class="value">
-                        <div id="sleep_all"></div>
+                        <div id="height"></div>
                     </div>
-                    <div class="topics">就寝時間</div>
+                    <div class="topics">体重</div>
                     <div class="value">
-                        <div id="sleep_start"></div>
+                        <div id="weight"></div>
                     </div>
-                    <div class="topics">起床時間</div>
+                    <div class="topics">BMI</div>
                     <div class="value">
-                        <div id="sleep_end"></div>
+                        <div id="bmi"></div>
                     </div>
-                    <div class="topics">二度寝</div>
+                    <div class="topics">年齢</div>
                     <div class="value">
-                        <div id="sleep_again"></div>
+                        <div id="age"></div>
                     </div>
-                    <div class="topics">睡眠スコア</div>
+                    <div class="topics">性別</div>
                     <div class="value">
-                        <div id="sleep_score"></div>
+                        <div id="gender"></div>
                     </div>
                 </div>
             </div>
             <div class="today_score">
-                <div class="title husen_m -b">睡眠内容の記入</div>
+                <div class="title husen_m -b">設定の変更</div>
                 <div class="contents">
-                    <div class="topics">就寝時間</div>
+                    <div class="topics">身長</div>
                     <div class="value">
-                        <input type="number" id="sleep_start_h" value="">
-                        <span>:<span>
-                        <input type="number" id="sleep_start_m" value="">
+                        <input type="number" id="height_new" value="">
+                        <span>cm<span>
                     </div>
-                    <div class="topics">起床時間</div>
+                    <div class="topics">体重</div>
                     <div class="value">
-                        <input type="number" id="sleep_end_h" value="">
-                        <span>:<span>
-                        <input type="number" id="sleep_end_m" value="">
+                        <input type="number" id="weight_new" value="">
+                        <span>kg<span>
                     </div>
-                    <div class="topics">二度寝</div>
+                    <div class="topics">年齢</div>
                     <div class="value">
-                        <input type="number" id="sleep_again_h" value="">
-                        <span>時間<span>
-                        <input type="number" id="sleep_again_m" value="">
-                        <span>分<span>
+                        <input type="number" id="age_new" value="">
+                        <span>歳<span>
+                    </div>
+                    <div class="topics">性別(男:1, 女:2, その他: 3)</div>
+                    <div class="value">
+                        <input type="number" id="gender_new" value="">
                     </div>
                     <div class="button_style">
-                        <input id="button1" type="button" value="記入内容を確定" onclick="sleep_calculate()">
+                        <input id="button1" type="button" value="記入内容を確定" onclick="settings_change()">
                     </div>
                 </div>
             </div>
-            <div class="main_details">
-                <div class="main_details_left">
-                    <div class="title husen_m_half -c">昨日の睡眠</div>
-                    <div class="contents">
-                        <div class="topics">総睡眠時間</div>
-                        <div class="value">
-                            <div id="sleep_all_yd"></div>
-                        </div>
-                        <div class="topics">就寝時間</div>
-                        <div class="value">
-                            <div id="sleep_start_yd"></div>
-                        </div>
-                        <div class="topics">起床時間</div>
-                        <div class="value">
-                            <div id="sleep_end_yd"></div>
-                        </div>
-                        <div class="topics">二度寝</div>
-                        <div class="value">
-                            <div id="sleep_again_yd"></div>
-                        </div>
-                        <div class="topics">睡眠スコア</div>
-                        <div class="value">
-                            <div id="sleep_score_yd"></div>
-                        </div>
+            <div class="item_details">
+                <div class="title husen_m -c">アイテム一覧</div>
+                <div class="contents">
+                    <div class="topics">最大HP増加</div>
+                    <div class="value">
+                        <div id="maxHP">最大HPを20増加させる</div>
+                        <div id="maxHP_num"></div>
                     </div>
-                </div>
-                <div class="main_details_right">
-                    <div class="title husen_m_half -d">獲得可能アイテム</div>
-                    <div class="contents">
-                        <div class="topics">最大HP増加</div>
-                        <div class="value">
-                            <div id="item_details">最大HPを20増加させる</div>
-                        </div>
-                        <div class="topics">回復回数増加</div>
-                        <div class="value">
-                            <div id="item_details">最大回復回数を1増加させる</div>
-                        </div>
-                        <div class="topics">ジャンプ回数増加</div>
-                        <div class="value">
-                            <div id="item_details">最大ジャンプ回数を1増加させる</div>
-                        </div>
+                    <div class="topics">回復回数増加</div>
+                    <div class="value">
+                        <div id="maxcure">最大回復回数を1増加させる</div>
+                        <div id="maxcure_num"></div>
+                    </div>
+                    <div class="topics">ジャンプ回数増加</div>
+                    <div class="value">
+                        <div id="maxjump">最大ジャンプ回数を1増加させる</div>
+                        <div id="maxjump_num"></div>
+                    </div>
+                    <div class="topics">累計ポイント</div>
+                    <div class="value">
+                        <div id="total_point"></div>
+                    </div>
+                    <div class="topics">ポイントによるアイテム付与</div>
+                    <div class="value">
+                        <p>最大HP増加:200点ごとに1個</p>
+                        <p>回復回数増加:500点ごとに1個</p>
+                        <p>最大ジャンプ回数増加:1000点ごとに1個</p>
                     </div>
                 </div>
             </div>
@@ -202,10 +188,10 @@
                 <div class="aside_lists">
                     <li class="husen_s"><a href="index.html#header" class="aside_item">トップ</a></li>
                     <li class="husen_s"><a href="eat.html#header" class="aside_item">食事管理</a></li>
-                    <li class="husen_s_blue"><a href="#header" class="aside_item">睡眠管理</a></li>
+                    <li class="husen_s"><a href="sleep.html#header" class="aside_item">睡眠管理</a></li>
                     <li class="husen_s"><a href="training.html#header" class="aside_item">運動管理</a></li>
                     <li class="husen_s"><a href="calendar.html#header" class="aside_item">カレンダー</a></li>
-                    <li class="husen_s"><a href="settings.html#header" class="aside_item">設定とアイテム</a></li>
+                    <li class="husen_s_blue"><a href="#header" class="aside_item">設定とアイテム</a></li>
                     <li class="husen_s"><a href="manual.html#header" class="aside_item">アプリの説明</a></li>
                 </div>
             </div>

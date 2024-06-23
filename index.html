@@ -28,7 +28,13 @@
  <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
  <!-- [endif] -->
 
- <script src="calculate.js"></script>
+ <!--JQuery-->
+ <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+ <script src="index_cal.js"></script>
+
+ <!--付箋アニメーション-->
+ <script src="husenfade.js"></script>
 
 </head>
 <!--headタグ終了-->
@@ -54,8 +60,9 @@
             </div>
             <div class="header_details">
                 <div class="header_summary">
-                    <div class="summary_background"><a class="summary_name" href="#">睡眠・運動の説明</a></div>
+                    <div class="summary_background"><a class="summary_name" href="#">食事・睡眠・運動の説明</a></div>
                         <div class="summary_lists">
+                            <li><a href="#">食事内容の説明</a></li>
                             <li><a href="#">睡眠内容の説明</a></li>
                             <li><a href="#">運動内容の説明</a></li>
                         </div>
@@ -88,70 +95,155 @@
         <!----- main -----> 
         <article id="main">
             <div class="today_score">
-                <div class="title husen_m">本日のスコア</div>
+                <div class="title husen_m -a">本日のスコア</div>
                 <div class="contents">
-                    <div class="topics">総睡眠時間</div>
+                    <div class="topics">食事スコア</div>
                     <div class="value">
-                        <div id="sleep_all_score">7時間30分</div>
+                        <div id="eat_score_top"></div>
                     </div>
-                    <div class="topics">総消費カロリー</div>
+                    <div class="topics">睡眠スコア</div>
                     <div class="value">
-                        <div class="burncal_all">300 kcal</div>
+                        <div id="sleep_score_top"></div>
                     </div>
-                    <div class="topics">スコア</div>
+                    <div class="topics">運動スコア</div>
                     <div class="value">
-                        <div class="score">60 点</div>
+                        <div id="training_score_top"></div>
                     </div>
-                    <div class="topics">評価</div>
+                    <div class="topics">総合スコア</div>
                     <div class="value">
-                        <div class="comment">脂質の量が多いです。間食などを控えてみましょう。</div>
+                        <div id="total_score"></div>
                     </div>
                 </div>
             </div>
             <div class="main_details">
                 <div class="main_details_left">
-                    <div class="title husen_m">本日の睡眠</div>
+                    <div class="title husen_m_half -b">本日の食事</div>
                     <div class="contents">
-                        <div class="topics">総睡眠時間</div>
+                        <div class="topics">総摂取カロリー</div>
                         <div class="value">
-                            <div id="sleep_all">7時間30分</div>
+                            <div id="gaincal_all"></div>
                         </div>
-                        <div class="topics">就寝時間</div>
+                        <div class="topics">項目1</div>
                         <div class="value">
-                            <div id="sleep_start">23:30</div>
+                            <div id="eat_menu_1"></div>
+                            <div id="eat_p_1"></div>
+                            <div id="eat_f_1"></div>
+                            <div id="eat_c_1"></div>
+                            <div id="eat_cal_1"></div>
                         </div>
-                        <div class="topics">起床時間</div>
+                        <div class="topics">項目2</div>
                         <div class="value">
-                            <div id="sleep_end">7:00</div>
+                            <div id="eat_menu_2"></div>
+                            <div id="eat_p_2"></div>
+                            <div id="eat_f_2"></div>
+                            <div id="eat_c_2"></div>
+                            <div id="eat_cal_2"></div>
                         </div>
-                        <div class="topics">二度寝</div>
+                        <div class="topics">項目3</div>
                         <div class="value">
-                            <div id="sleep_again">なし</div>
+                            <div id="eat_menu_3"></div>
+                            <div id="eat_p_3"></div>
+                            <div id="eat_f_3"></div>
+                            <div id="eat_c_3"></div>
+                            <div id="eat_cal_3"></div>
+                        </div>
+                        <div class="topics">食事スコア</div>
+                        <div class="value">
+                            <div id="eat_score"></div>
                         </div>
                     </div>
                 </div>
                 <div class="main_details_right">
-                    <div class="title husen_m">本日の運動</div>
+                    <div class="title husen_m_half -c">本日の睡眠</div>
+                    <div class="contents">
+                        <div class="topics">総睡眠時間</div>
+                        <div class="value">
+                            <div id="sleep_all"></div>
+                        </div>
+                        <div class="topics">就寝時間</div>
+                        <div class="value">
+                            <div id="sleep_start"></div>
+                        </div>
+                        <div class="topics">起床時間</div>
+                        <div class="value">
+                            <div id="sleep_end"></div>
+                        </div>
+                        <div class="topics">二度寝</div>
+                        <div class="value">
+                            <div id="sleep_again"></div>
+                        </div>
+                        <div class="topics">睡眠スコア</div>
+                        <div class="value">
+                            <div id="sleep_score"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="main_details">
+                <div class="main_details_left">
+                    <div class="title husen_m_half -d">本日の運動</div>
                     <div class="contents">
                         <div class="topics">総消費カロリー</div>
                         <div class="value">
-                            <div class="burncal_all">300 kcal</div>
+                            <div id="burncal_all"></div>
                         </div>
                         <div class="topics">種目1</div>
                         <div class="value">
-                            <div class="training_menu">ウォーキング</div>
-                            <div class="burncal">100 kcal</div>
+                            <div id="training_menu_1"></div>
+                            <div id="training_time_1"></div>
+                            <div id="training_cal_1"></div>
                         </div>
                         <div class="topics">種目2</div>
                         <div class="value">
-                            <div class="training_menu">スクワット</div>
-                            <div class="burncal">200 kcal</div>
+                            <div id="training_menu_2"></div>
+                            <div id="training_time_2"></div>
+                            <div id="training_cal_2"></div>
+                        </div>
+                        <div class="topics">種目3</div>
+                        <div class="value">
+                            <div id="training_menu_3"></div>
+                            <div id="training_time_3"></div>
+                            <div id="training_cal_3"></div>
+                        </div>
+                        <div class="topics">運動スコア</div>
+                        <div class="value">
+                            <div id="training_score"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="main_details_right">
+                    <div class="title husen_m_half -e">現在のアイテム</div>
+                    <div class="contents">
+                        <div class="topics">最大HP増加</div>
+                        <div class="value">
+                            <div id="maxHP">最大HPを20増加させる</div>
+                            <div id="maxHP_num"></div>
+                        </div>
+                        <div class="topics">回復回数増加</div>
+                        <div class="value">
+                            <div id="maxcure">最大回復回数を1増加させる</div>
+                            <div id="maxcure_num"></div>
+                        </div>
+                        <div class="topics">ジャンプ回数増加</div>
+                        <div class="value">
+                            <div id="maxjump">最大ジャンプ回数を1増加させる</div>
+                            <div id="maxjump_num"></div>
+                        </div>
+                        <div class="topics">累計ポイント</div>
+                        <div class="value">
+                            <div id="total_point"></div>
+                        </div>
+                        <div class="topics">ポイントによるアイテム付与</div>
+                        <div class="value">
+                            <p>最大HP増加:200点ごとに1個</p>
+                            <p>回復回数増加:500点ごとに1個</p>
+                            <p>最大ジャンプ回数増加:1000点ごとに1個</p>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="departure">
-                <div class="title husen_m">冒険はこちら</div>
+                <div class="title husen_m -f">冒険はこちら</div>
                 <div class="contents_departure">
                     <div class="goto_quest"><a href="#quest" class="que">冒険に出かける</a></div>
                 </div>
@@ -166,12 +258,13 @@
                 <div class="clip_over_background"><div class="clip_over"></div></div>
                 <div class="clip_under_background"><div class="clip_under"></div></div>
                 <div class="aside_lists">
-                    <li class="husen_s"><a href="#header" class="aside_item">トップ</a></li>
+                    <li class="husen_s_blue"><a href="#header" class="aside_item">トップ</a></li>
+                    <li class="husen_s"><a href="eat.html#header" class="aside_item">食事管理</a></li>
                     <li class="husen_s"><a href="sleep.html#header" class="aside_item">睡眠管理</a></li>
                     <li class="husen_s"><a href="training.html#header" class="aside_item">運動管理</a></li>
-                    <li class="husen_s"><a href="#calendar" class="aside_item">カレンダー</a></li>
-                    <li class="husen_s"><a href="#items" class="aside_item">アイテム一覧</a></li>
-                    <li class="husen_s"><a href="#setting" class="aside_item">設定</a></li>
+                    <li class="husen_s"><a href="calendar.html#header" class="aside_item">カレンダー</a></li>
+                    <li class="husen_s"><a href="settings.html#header" class="aside_item">設定とアイテム</a></li>
+                    <li class="husen_s"><a href="manual.html#header" class="aside_item">アプリの説明</a></li>
                 </div>
             </div>
         </aside>
