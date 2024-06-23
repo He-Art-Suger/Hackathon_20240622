@@ -10,20 +10,19 @@
     font-size: 35px;
     font-weight: bold;
     font-family: 'M PLUS Rounded 1c', sans-serif;
-    background-color: #3e434f;
+    background-image: -webkit-linear-gradient(top, #3e434f 0%, #717889 60%, #3e434f 100%);
+    background-image: linear-gradient(to bottom, #3e434f 0%,  #717889 60%, #3e434f 100%);
     margin-top: 30px;
 }
 
-.aside_initial::first-letter {
-    color: #7f001b;
-}
-
 .aside_lists {
-    background-color: #ddd;
+    background-image: -webkit-linear-gradient(left, #eee 0%, #ccc 20%, #ddd 90%, #eee 100%);
+    background-image: linear-gradient(to right, #eee 0%, #ccc 20%, #ddd 90%, #eee 100%);
     padding: 10px;
     border-left: 10px solid #3e434f;
     border-right: 10px solid #3e434f;
     border-bottom: 18px solid #3e434f;
+    box-shadow: 4px 4px 2px 0px #333;
 }
 
 .aside_lists .husen_s {
@@ -35,6 +34,8 @@
     background-image: linear-gradient(to right, #5ade00 0%, #80ff2a 50%, #67ff00 100%);
     border-left: solid 30px #4cbd00;
     text-align: center;
+    box-shadow: 3px 3px 7px #777,
+                -3px 3px 5px 10px #ddd;
 }
 
 .aside_lists .husen_s:hover {
@@ -47,10 +48,17 @@
     padding-top: 10px;
     padding-bottom: 10px;
     margin: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
     background-image: -webkit-linear-gradient(left, #2f94ff 0%, #56d4ff 50%, #3cb7ff 100%);
     background-image: linear-gradient(to right, #2f94ff 0%, #56d4ff 50%, #3cb7ff 100%);
     border-left: solid 30px #0071cd;
     text-align: center;
+    box-shadow: 3px 3px 7px #777,
+                -3px 3px 5px 10px #ddd;
 }
 
 .aside_lists .husen_s_blue:hover {
@@ -87,7 +95,8 @@
 
 .clip_under_background {
     height: 20px;
-    background-color: #ddd;
+    background-image: -webkit-linear-gradient(left, #eee 0%, #ccc 20%, #ddd 90%, #eee 100%);
+    background-image: linear-gradient(to right, #eee 0%, #ccc 20%, #ddd 90%, #eee 100%);
     border-left: 10px solid #3e434f;
     border-right: 10px solid #3e434f;
 }
