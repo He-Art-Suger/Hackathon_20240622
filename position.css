@@ -1,6 +1,6 @@
 body {
-    background-image: -webkit-linear-gradient(left, #ad5f34 0%, #6d3912 50%, #c57751 100%);
-    background-image: linear-gradient(to right, #ad5f34 0%, #6d3912 50%, #c57751 100%);
+    background-image: -webkit-linear-gradient(left, #ad5f34 0%, #7d502f 10%, #b6521b 30%, #6d3912 60%, #a46344 70%, #c57751 100%);
+    background-image: linear-gradient(to right, #ad5f34 0%, #7d502f 10%, #b6521b 30%, #6d3912 60%, #a46344 70%, #c57751 100%);
 }
 
 #header {
